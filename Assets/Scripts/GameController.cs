@@ -76,13 +76,13 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         _canvasTransform = FindFirstObjectByType<Canvas>().transform;
+        _levelUpgradePrice = 0;
+        _currentLevel = 0;
+        UpgradeLevel();
     }
     void Start()
     {
         _10kMoneyAchieved = false;
-        _levelUpgradePrice = 0;
-        _currentLevel = 0;
-        UpgradeLevel();
     }
     void Update()
     {

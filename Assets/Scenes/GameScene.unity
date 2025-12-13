@@ -1785,6 +1785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameController: {fileID: 671244165}
   _explodeParticles: {fileID: 141433446842962269, guid: 78b7e1db1c9259f498b77f787ae75ca8, type: 3}
+  _balloonParentTransform: {fileID: 1212927857}
   _currentBalloonModel: {fileID: 0}
   _balloonModel1: {fileID: 3212138891032732295, guid: dd748e610c85d07479918cd347871a6e, type: 3}
   _balloonModel2: {fileID: 3212138891032732295, guid: d4a9673c269ca2c4a973be39d60dde28, type: 3}
@@ -6015,6 +6016,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208305678}
   m_CullTransparentMesh: 1
+--- !u!1 &1212927856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1212927857}
+  m_Layer: 0
+  m_Name: Balloons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1212927857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212927856}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 43.145508, y: -65.728455, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1718731915}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1241014509
 GameObject:
   m_ObjectHideFlags: 0
@@ -9046,6 +9078,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 314751784}
+  - {fileID: 1212927857}
   m_Father: {fileID: 2060571363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.37858337}

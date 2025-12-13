@@ -67,6 +67,7 @@ public class Inflator : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     #region Fields
     [SerializeField] private GameController _gameController;
     [SerializeField] private GameObject _explodeParticles;
+    [SerializeField] private Transform _balloonParentTransform;
 
     [Header("Ballon")]
     [SerializeField] private GameObject _currentBalloonModel;
@@ -111,7 +112,7 @@ public class Inflator : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             _timePressed += Time.deltaTime;
             //Debug.Log("Inflando...");
-            _currentBalloon.transform.localScale = new Vector3(_timePressed*_speed/3, _timePressed*_speed/3, 0);
+            _currentBalloon.transform.localScale = new Vector3(_timePressed*_speed/3, _timePressed*_speed/3, 1);
             _currentBalloon.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Mathf.RoundToInt(_timePressed * _moneyMultiplier * _speed);
             float randomValue = Random.value;
             _balloonExplodeChance = Mathf.Pow(_timePressed*_speed / _balloonDurablility, 2f);
@@ -176,8 +177,7 @@ public class Inflator : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if(_currentBalloon != null)
             _previousBalloon = _currentBalloon;
 
-        _currentBalloon = Instantiate(_currentBalloonModel, transform.position + new Vector3(350, 450, 0), Quaternion.identity, gameObject.transform);
-        _currentBalloon.transform.SetParent(transform.parent);
+        _currentBalloon = Instantiate(_currentBalloonModel, transform.position + new Vector3(350, 450, 0), Quaternion.identity, _balloonParentTransform);
     }
     public void UpgradeBalloon(int upgradeIndex)
     {

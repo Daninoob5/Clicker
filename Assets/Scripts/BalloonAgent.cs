@@ -23,7 +23,7 @@ public class BalloonAgent : MonoBehaviour
     void Update()
     {
         _timeGrowing += Time.deltaTime;
-        transform.localScale = new Vector3(_timeGrowing * Speed/3, _timeGrowing * Speed/3, 0);
+        transform.localScale = new Vector3(_timeGrowing * Speed/3, _timeGrowing * Speed/3, 1);
         GetComponentInChildren<TextMeshProUGUI>().text = "+" + Mathf.RoundToInt(_timeGrowing * MoneyMultiplier * Speed);
         float randomValue = Random.value;
         _balloonExplodeChance = Mathf.Pow(_timeGrowing * Speed / Durability, 2f);
