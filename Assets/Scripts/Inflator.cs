@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using Unity.VisualScripting;
 using TMPro;
+using UnityEngine.UI;
 
 public class Inflator : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -68,6 +69,7 @@ public class Inflator : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] private GameController _gameController;
     [SerializeField] private GameObject _explodeParticles;
     [SerializeField] private Transform _balloonParentTransform;
+    [SerializeField] private Image _arrowImage;
 
     [Header("Ballon")]
     [SerializeField] private GameObject _currentBalloonModel;
@@ -141,7 +143,8 @@ public class Inflator : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerUp(PointerEventData eventData)
     {
         _isPressed = false;
-        if(_currentBalloon != null)
+        _arrowImage.color = new Color(1, 1, 1);
+        if (_currentBalloon != null)
         {
             if (_timePressed * _speed < 0.6)
             {
@@ -169,8 +172,9 @@ public class Inflator : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-       _isPressed = true;
-       _timePressed = 0;
+        _isPressed = true;
+        _arrowImage.color = new Color(0.75f, 0.75f, 0.75f);
+        _timePressed = 0;
 
         if (_previousBalloon != null)
             Destroy(_previousBalloon);
