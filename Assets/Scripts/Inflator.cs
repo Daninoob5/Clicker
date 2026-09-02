@@ -181,7 +181,7 @@ public class Inflator : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if(_currentBalloon != null)
             _previousBalloon = _currentBalloon;
 
-        _currentBalloon = Instantiate(_currentBalloonModel, transform.position + new Vector3(350, 450, 0), Quaternion.identity, _balloonParentTransform);
+        _currentBalloon = Instantiate(_currentBalloonModel, _balloonParentTransform.position, Quaternion.identity, _balloonParentTransform);
     }
     public void UpgradeBalloon(int upgradeIndex)
     {

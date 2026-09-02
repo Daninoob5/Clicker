@@ -195,11 +195,7 @@ public class GameController : MonoBehaviour
     }
     public void CreateAgent(float speed, float durability, float moneyMultiplier, Sprite sprite, GameObject particles)
     {
-        float posX = Random.Range(0, 400);
-        float posY = Random.Range(0, 100);
-        Vector2 position = new Vector2(posX,posY);
         GameObject ballon = Instantiate(_ballonAgentPrefab, _canvasTransform);
-        ballon.GetComponent<RectTransform>().anchoredPosition = position;
         BalloonAgent ballonAgent = ballon.GetComponent<BalloonAgent>();
         ballonAgent.Speed = speed;
         ballonAgent.Durability = durability;   
@@ -207,6 +203,7 @@ public class GameController : MonoBehaviour
         ballonAgent.ExplosionParticles = particles;
         ballon.GetComponent<Image>().sprite = sprite;
         ballonAgent.GameController = this;
+        ballonAgent.MoveToRandomPosition();
     }
     public void SetMusic(AudioClip audio)
     {

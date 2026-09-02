@@ -34,14 +34,18 @@ public class BalloonAgent : MonoBehaviour
             GameController.GainMoney(money);
             _timeGrowing = 0;
             Instantiate(ExplosionParticles, transform.position, Quaternion.identity);
-            float posX = Random.Range(0, 400);
-            float posY = Random.Range(0, 100);
-            Vector2 position = new Vector2(posX, posY);
-            GetComponent<RectTransform>().anchoredPosition = position;
+            MoveToRandomPosition();
         }
     }
     #endregion
     #region Public Methods
+    public void MoveToRandomPosition()
+    {
+        float posX = Random.Range(0, 400);
+        float posY = Random.Range(0, 100);
+        Vector2 position = new Vector2(posX, posY);
+        GetComponent<RectTransform>().anchoredPosition = position;
+    }
     #endregion
     #region Private Methods
     #endregion
